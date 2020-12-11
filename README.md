@@ -1,5 +1,10 @@
 練習
 
 gohandson
-accountbook goroutine   greeting    guestbook   imgconv     slackbot
+- accountbook
+- goroutine
+- greeting 
+- guestbook 
+- imgconv 
+- slackbot
 
