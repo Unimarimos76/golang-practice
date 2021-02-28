@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -9,13 +10,18 @@ import (
 	jwtware "github.com/gofiber/jwt/v2"
 )
 
-type User struct {
-	Name string `json:"name"`
-	Age  int    `json:"age"`
-}
-
 func main() {
 	app := fiber.New()
+
+	app.Get("/pages/:id", func(c *fiber.Ctx) error {
+		msg := fmt.Sprintf("all pages %s", c.Params("id"))
+		return c.SendString(msg)
+	})
+
+	app.Get("/pages", func(c *fiber.Ctx) error {
+		msg := fmt.Sprintf("all pages")
+		return c.SendString(msg)
+	})
 
 	// Login route
 	app.Post("/login", login)
